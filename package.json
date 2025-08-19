@@ -1,0 +1,38 @@
+{
+  "name": "digitalflix-api",
+  "version": "1.0.0",
+  "description": "A Node.js API for Digitalflix, a movie streaming platform similar to Netflix.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunomsdev/digitalflix-api.git"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "express",
+    "movies",
+    "streaming",
+    "digitalflix"
+  ],
+  "author": "Ana Menires, Bruno Milhomens, Daniel, Erick Vinícius, Luan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunomsdev/digitalflix-api/issues"
+  },
+  "homepage": "https://github.com/brunomsdev/digitalflix-api#readme",
+  "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "@sentry/node": "^10.5.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.14.0"
+  }
+}
