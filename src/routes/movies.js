@@ -1,11 +1,14 @@
 // src/movies.js
 const express = require("express");
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require("../generated/prisma");
 const { authMiddleware } = require("../middlewares/auth");
+const { getAllMovies, createMovie } = require('../controllers/moviesController');
 
 const prisma = new PrismaClient();
 const router = express.Router();
 
+router.get('/', getAllMovies);
+router.post("/", createMovie);
 
 router.get("/", authMiddleware(), async (req, res) => {
   try {
@@ -88,3 +91,4 @@ router.delete("/:id", authMiddleware("admin"), async (req, res) => {
 });
 
 module.exports = router;
+
