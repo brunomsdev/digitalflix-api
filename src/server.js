@@ -1,14 +1,21 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const router = require("./routes");
+const authRoutes = require("./routes/routes");  
+const userRoutes = require("./routes/users"); 
+const movieRoutes = require("./routes/movies"); 
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
+
 app.get("/", (_, res) => res.json({ ok: true, up: new Date().toISOString() }));
-app.use("/api", router);
+
+
+app.use("/api/auth", authRoutes);   
+app.use("/api/users", userRoutes); 
+app.use("/api/movies", movieRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
