@@ -1,8 +1,8 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { authMiddleware } = require("../middlewares/auth"); // ✅ usa o middleware corrigido
-const { PrismaClient } = require("@prisma/client");
+const { authMiddleware } = require("../middlewares/auth"); 
+const { PrismaClient } = require("../generated/prisma");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -10,7 +10,7 @@ dotenv.config();
 const prisma = new PrismaClient();
 const router = express.Router();
 
-// 📌 Registro de usuário
+
 router.post("/register", async (req, res) => {
   try {
     const { username, password, role } = req.body;
@@ -19,14 +19,14 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ message: "username e password são obrigatórios" });
     }
 
-    // Verifica se já existe
+    
     const exists = await prisma.user.findUnique({ where: { username } });
     if (exists) return res.status(409).json({ message: "Usuário já existe" });
 
-    // Criptografa senha
+    
     const hashedPassword = bcrypt.hashSync(password, 8);
 
-    // Cria novo usuário
+    
     const newUser = await prisma.user.create({
       data: {
         username,
@@ -45,7 +45,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// 📌 Login
+
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
     const ok = bcrypt.compareSync(password, user.password);
     if (!ok) return res.status(401).json({ message: "Senha inválida" });
 
-    // Gera token JWT
+   
     const token = jwt.sign(
       { id: user.id, role: user.role },
       process.env.JWT_SECRET,
