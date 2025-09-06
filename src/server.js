@@ -3,11 +3,13 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/routes");  
 const userRoutes = require("./routes/users"); 
 const movieRoutes = require("./routes/movies"); 
+const cors = require("cors");
+
 
 
 dotenv.config();
-
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 

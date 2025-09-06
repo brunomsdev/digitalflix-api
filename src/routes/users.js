@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const { PrismaClient } = require("../generated/prisma");
 const { authMiddleware } = require("../middlewares/auth");
+const { createUser } = require('../controllers/userController');
 
 const prisma = new PrismaClient();
 const router = express.Router();
@@ -40,6 +41,8 @@ router.get("/:id", authMiddleware(), async (req, res) => {
     return res.status(500).json({ message: "Erro ao buscar usuário", error: err.message });
   }
 });
+
+router.post("/", createUser);
 
 
 router.put("/:id/password", authMiddleware(), async (req, res) => {
