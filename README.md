@@ -6,14 +6,12 @@ This project was created as part of a backend learning process, focusing on API 
 
 ---
 
-## 🚧 Project Status
-**In development**
-
-Features and improvements were added incrementally during the learning process.
+## Project Status
+Learning project (not actively maintained)
 
 ---
 
-## ✨ Features
+## Features
 - RESTful API endpoints
 - Movie and category management
 - Data persistence
@@ -22,7 +20,7 @@ Features and improvements were added incrementally during the learning process.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - Node.js
 - Express
 - JavaScript
@@ -30,25 +28,16 @@ Features and improvements were added incrementally during the learning process.
 
 ---
 
-## 🧩 Project Structure
+## Project Structure
 The project follows a basic backend architecture with separation of concerns:
 - Routes
 - Controllers
 - Services
 - Models
 
-This structure helps keep the code organized and maintainable.
-
 ---
 
-## 🧪 Testing (Planned)
-Automated tests are planned as part of continued learning, including:
-- Unit tests
-- Basic integration tests
-
----
-
-## ▶️ Running the project locally
+## Running the project locally
 
 ```bash
 npm install
